@@ -112,8 +112,6 @@ Text GLabel 6150 1800 0    60   Input ~ 0
 VCC
 Text GLabel 6450 1800 2    60   Input ~ 0
 GND
-Wire Wire Line
-	7400 3100 8350 3100
 $Comp
 L GND #PWR01
 U 1 1 57951ED6
@@ -257,8 +255,6 @@ Wire Wire Line
 	3150 1700 3350 1700
 Text GLabel 5800 3800 0    60   Input ~ 0
 D6
-Text GLabel 2800 1600 0    60   Input ~ 0
-D6
 Connection ~ 3250 1600
 $Comp
 L AMS1117 IC1
@@ -276,8 +272,6 @@ GND
 Text GLabel 3250 6300 0    60   Input ~ 0
 GND
 Text GLabel 7400 3000 2    60   Input ~ 0
-RAW
-Text GLabel 5500 5500 2    60   Input ~ 0
 RAW
 $Comp
 L C C2
@@ -314,7 +308,7 @@ L JUMPER3 JP1
 U 1 1 579611E5
 P 4600 4500
 F 0 "JP1" H 4650 4400 50  0000 L CNN
-F 1 "JUMPER3" H 4600 4600 50  0000 C BNN
+F 1 "NRF_3v3_SEL" H 4600 4600 50  0000 C BNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 4600 4500 50  0001 C CNN
 F 3 "" H 4600 4500 50  0000 C CNN
 	1    4600 4500
@@ -331,7 +325,7 @@ L JUMPER JP2
 U 1 1 57961B4A
 P 5000 5500
 F 0 "JP2" H 5000 5650 50  0000 C CNN
-F 1 "JUMPER" H 5000 5420 50  0000 C CNN
+F 1 "vReg_EN" H 5000 5420 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 5000 5500 50  0001 C CNN
 F 3 "" H 5000 5500 50  0000 C CNN
 	1    5000 5500
@@ -530,7 +524,7 @@ L JUMPER JP3
 U 1 1 579655E7
 P 7200 6300
 F 0 "JP3" H 7200 6450 50  0000 C CNN
-F 1 "JUMPER" H 7200 6220 50  0000 C CNN
+F 1 "Feed_with_raw" H 7200 6220 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 7200 6300 50  0001 C CNN
 F 3 "" H 7200 6300 50  0000 C CNN
 	1    7200 6300
@@ -545,4 +539,46 @@ Connection ~ 4250 5500
 Connection ~ 4550 5500
 Wire Wire Line
 	7900 4600 8400 4600
+$Comp
+L USB_OTG P3
+U 1 1 57EFEBF5
+P 6015 4940
+F 0 "P3" H 6340 4815 50  0000 C CNN
+F 1 "USB_OTG" H 6015 5140 50  0000 C CNN
+F 2 "MySensors:USB_Micro-B_ebay" V 5965 4840 50  0001 C CNN
+F 3 "" V 5965 4840 50  0000 C CNN
+	1    6015 4940
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5815 5240 5815 5365
+Wire Wire Line
+	5815 5365 5300 5365
+Wire Wire Line
+	5300 5365 5300 5500
+Wire Wire Line
+	6215 5240 6215 5285
+Text GLabel 6215 5285 3    60   Input ~ 0
+GND
+Text GLabel 5500 5500 2    60   Input ~ 0
+VCC
+$Comp
+L JUMPER JP4
+U 1 1 5807A157
+P 7845 3100
+F 0 "JP4" H 7845 3250 50  0000 C CNN
+F 1 "Meas_cur" H 7845 3020 50  0000 C CNN
+F 2 "MySensors:Pin_Header_Straight_1x02_cuttable" H 7845 3100 50  0001 C CNN
+F 3 "" H 7845 3100 50  0000 C CNN
+	1    7845 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7545 3100 7400 3100
+Wire Wire Line
+	8145 3100 8350 3100
+Text GLabel 5800 3200 0    60   Input ~ 0
+D3
+Text GLabel 2800 1600 0    60   Input ~ 0
+D3
 $EndSCHEMATC
